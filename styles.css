@@ -6,3 +6,69 @@ main{width:min(1440px,calc(100% - clamp(32px,9vw,160px)));margin:0 auto;min-heig
 @media(max-width:1000px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}.hero:after{opacity:.3}.detail-layout{grid-template-columns:1fr}.detail-aside{position:static;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.detail-aside .stat{border:0}}
 @media(max-width:620px){.site-nav{height:68px;padding:0 16px;gap:10px}.brand{font-size:0}.brand-icon{font-size:23px}.site-nav nav{gap:15px}.site-nav nav a{font-size:10px}.github-link{display:none}main{width:calc(100% - 32px)}.hero{min-height:500px}.hero h1{font-size:52px}.hero:after{width:140px;height:140px;right:7%;top:18%}.project-grid,.board{grid-template-columns:1fr}.project-tile{min-height:230px}.lane{min-height:330px}.lane-scroll{max-height:320px}.dashboard-head{padding-top:44px}.bottom-line{flex-direction:column}.detail-aside{grid-template-columns:1fr}.detail-layout{gap:0}.footer{padding:22px 16px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* v0.2: editorial garden theme, informed by Maggie Appleton's warm paper and serif typography.
+   Fraunces and Lato are open/web-available substitutes for proprietary Canela. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,20,1;9..144,500,20,1;9..144,600,20,1;9..144,700,20,1&family=Lato:wght@400;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+:root{
+  color-scheme:light;
+  --bg:#f8f6f0;--panel:#fffdf8;--panel2:#f1eee5;--border:#ddd9cc;
+  --text:#343c36;--muted:#777e73;--mint:#507b68;--blue:#6f859c;
+  --purple:#8d7995;--orange:#b1875c;
+  --serif:'Fraunces','Noto Serif SC',Georgia,serif;
+  --sans:'Lato','Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'Lato',sans-serif;
+}
+body{font:16px/1.8 var(--sans);background:var(--bg);color:var(--text)}
+.ambient{background:radial-gradient(ellipse at 80% 10%,#e9e5d999,transparent 46%),linear-gradient(#8e938309 1px,transparent 1px);background-size:auto,64px 64px;opacity:.55}
+.site-nav{background:#f8f6f0eb;border-bottom:1px solid var(--border);backdrop-filter:blur(16px)}
+.site-nav nav a{color:#666f63;font-family:var(--sans);font-weight:700;letter-spacing:.045em}
+.site-nav nav a:hover,.site-nav nav a.active{color:var(--mint)}
+.brand{font-family:var(--sans);color:var(--text)}
+.brand-icon{border-color:#bcb7a8}.brand b,.brand-dot{color:#6b856d}
+.github-link{border-color:var(--border);color:var(--text);font-family:var(--sans)}
+.github-link:hover{border-color:#6f8b77;color:var(--mint)}
+.eyebrow{font-family:var(--sans);font-weight:700;letter-spacing:.12em;color:#738777}
+.hero h1,.section-title h2,.project-tile h3,.dashboard-head h1,.detail-layout h1,.notfound h1{font-family:var(--serif);font-weight:500;letter-spacing:-.045em}
+.hero h1{font-size:clamp(48px,7vw,93px);line-height:1.18}
+.hero h1 .outline{color:#8b9a86;-webkit-text-stroke:0}
+.hero p{color:#626b60}
+.hero:after{border:1px solid #92a79250;box-shadow:0 0 0 35px #9aaf9c08,0 0 0 75px #9aaf9c08,0 0 90px #b0bba733}
+.cta{border:1px solid #c8d5c9;background:#e9efe7;color:#486e54;font-family:var(--sans);font-weight:700}
+.cta.secondary{border-color:var(--border);background:#fffdf8;color:#536056}
+.cta:hover{background:#dfe9df}
+.section-title .right,.bottom-line,.footer,.tile-head{font-family:var(--sans);letter-spacing:.05em}
+.project-tile,.project-tile.ai,.project-tile.av{background:#fffdf8;border-color:#dedad0;box-shadow:0 6px 22px #55584409}
+.project-tile.ai{background:radial-gradient(circle at 90% 12%,#dee8deaa,transparent 57%),#fffdf8}
+.project-tile.av{background:radial-gradient(circle at 90% 12%,#e7e4dcaa,transparent 57%),#fffdf8}
+.project-tile:hover{border-color:#9bb09c;box-shadow:0 16px 50px #48544417}
+.project-tile .large-no{color:#8da18d14}
+.tile-head .arrow{color:#668b70}
+.project-tile p,.tile-head{color:#71796f}
+.bottom-line{border-top-color:var(--border);color:#788276}
+.dashboard-head p{color:#667266}
+.summary-band{background:#fffdf8;border-color:#ddd9cc}
+.summary-band strong{color:#587a62;font-family:var(--serif);font-weight:600}
+.summary-band span{color:#758074;font-family:var(--sans)}
+.demo-note{background:#fff3df;border-color:#e5cfaa;color:#8d6e47}
+.board{gap:16px}
+.lane{background:#fffdf8;border-color:#dedad0;box-shadow:0 3px 15px #4c59400a}
+.lane-head{border-bottom-color:#e9e4d8}
+.lane h2{font-family:var(--serif);font-size:clamp(17px,1.8vw,24px);font-weight:600;line-height:1.3}
+.lane h2 small,.lane-index,.score span,.task-card .meta,.lane-empty{font-family:var(--sans);color:#83897d}
+.score strong{font-family:var(--serif);font-weight:600}
+.lane-bullet{box-shadow:none}
+.task-card{background:#f5f3ec;border-color:#e8e4d9}
+.task-card:hover{background:#eeefe6;border-color:#adb9a9}
+.task-card h3{font-family:var(--sans);font-weight:700;color:#354137}
+.task-card .meta{color:#858a80}
+.lane-scroll{scrollbar-color:#c8c6ba transparent}
+.back{font-family:var(--sans);color:#657269}
+.detail-sub,.detail-panel p{color:#626d62}
+.detail-panel{border-top-color:var(--border)}
+.detail-panel h2{font-family:var(--serif);font-size:24px}
+.detail-aside{background:#fffdf8;border-color:var(--border)}
+.detail-aside .stat{border-color:var(--border)}
+.detail-aside label{font-family:var(--sans);color:#838b7e}
+.footer{border-top-color:var(--border);color:#7a8377;font-family:var(--sans)}
+::selection{background:#d0dfcd}
