@@ -53,3 +53,18 @@ main{max-width:1210px;width:calc(100% - 48px);margin:auto;min-height:calc(100vh 
 .board:has(.lane:nth-child(5)){grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
 @media(max-width:1050px){.board:has(.lane:nth-child(5)){grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.board:has(.lane:nth-child(5)){grid-template-columns:1fr}}
+
+/* Projects and Topics each have their own compact scrolling dashboard. */
+.board.projects-board{grid-template-columns:repeat(3,minmax(0,1fr))}
+.board.topics-board{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lane{min-height:260px}
+.lane-title{display:block}.lane-title:hover h2{color:var(--accent)}
+.lane-scroll{height:210px;max-height:210px}
+.score-note{font-size:11px!important;color:#8a9086!important;margin-top:-8px!important}
+.tag-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.tag{display:inline-block;border:1px solid var(--rule);padding:2px 7px;font-size:11px;color:#58705d}
+.tag:hover{border-color:var(--accent);background:#f0f0e9}
+.entity-progress{border-top:1px solid var(--rule)}
+@media(max-width:1050px){.board.topics-board{grid-template-columns:repeat(3,minmax(0,1fr))}.board.projects-board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.board.topics-board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.board.projects-board,.board.topics-board{grid-template-columns:1fr}.lane{min-height:0}.lane-scroll{height:auto;max-height:220px}}
