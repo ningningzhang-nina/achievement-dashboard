@@ -1,55 +1,47 @@
-# Achievement OS
+# Personal Research OS
 
-Personal achievement dashboard for AI research and aviation systems.
+Personal research notes and progress tracker. Built with vanilla HTML, CSS, and JavaScript for GitHub Pages.
 
-## Preview
+## Pages
 
-This is **version 0.1**. The current records are explicitly marked as **demo data** and are **not** verified personal achievements.
+- **Home**: overview and latest activity
+- **Projects** (`#/projects`): independent research objectives, each with a score and scrollable progress log
+- **Topics** (`#/topics`): cross-cutting knowledge areas, each with a score and scrollable progress log
+- **Details**: every progress entry has a permanent `#/task/<id>` route; projects and topics have detail pages
 
-- Landing page: experimental dark editorial portfolio
-- AI Lab: four vertical columns (ML / Deep Learning / Reinforcement Learning / LLM)
-- Aviation: four vertical columns (RM / Dynamic Pricing / Simulation / Research)
-- Each column independently scores and sorts latest achievements first
-- Click any achievement to open a detailed record
-- Responsive layout, keyboard focus, reduced-motion support
+## Data
 
-## GitHub Pages
+Progress entries live in `data/achievements.json`. Existing content and original IDs are retained.
 
-Once the PR is merged, go to **Settings → Pages → Build and deployment → Deploy from a branch**, select **main** and **/(root)**. The project URL will be:
+```json
+{
+  "id": "unique-entry-id",
+  "title": "Research note",
+  "date": "2026-11-16",
+  "type": "idea",
+  "points": 5,
+  "projectIds": ["event-impact-demand"],
+  "topicIds": ["aviation", "causal-inference"],
+  "summary": "Summary",
+  "background": "Context",
+  "process": "Progress",
+  "result": "Outcome",
+  "takeaway": "Learning",
+  "references": []
+}
+```
+
+- Add a project to `PROJECTS` or a topic to `TOPICS` in `app.js`, then link records using IDs.
+- Entries can belong to multiple projects/topics; **the site-wide XP totals unique entries only**.
+- A project's XP is its linked records' sum; a topic's XP is its linked records' sum. **Do not add topic scores together**, because entries can appear under several topics.
+- Default score for new progress is 5 XP. News/industry notes have 0 XP; explicit per-entry values override the default.
+- To record independent learning, use `projectIds: []` and one or more `topicIds`.
+- Older `#/task/<id>` links remain valid. Legacy `#/ai` and `#/aviation` open Topics.
+
+## Publish
+
+GitHub Pages: Settings → Pages → Deploy from branch → main → /(root).
 
 https://ningningzhang-nina.github.io/achievement-dashboard/
 
-## Maintaining achievements
-
-Edit \`data/achievements.json\` in GitHub. Each entry has:
-
-\`\`\`json
-{
-  "id": "unique-slug",
-  "section": "ai",
-  "category": "ml",
-  "title": "Task title",
-  "date": "2026-11-15",
-  "points": 10,
-  "summary": "One sentence",
-  "background": "Why",
-  "process": "What was done",
-  "result": "What was produced",
-  "takeaway": "What was learned"
-}
-\`\`\`
-
-AI categories: \`ml\`, \`dl\`, \`rl\`, \`llm\`.
-Aviation categories: \`rm\`, \`dp\`, \`sim\`, \`research\`.
-
-For real entries, remove \`"demo": true\`. The score totals are calculated from these records, never maintained separately.
-
-**Privacy:** This repository is public. Do not upload internal algorithms, airline/customer data, unpublished confidential project details, or employer proprietary material.
-
-## Design references
-
-Inspired by the information hierarchy and restraint of [Brittany Chiang](https://brittanychiang.com/) and [Lee Robinson](https://leerob.com/); not a reproduction of either site.
-
-## Technology
-
-Plain HTML/CSS/JavaScript, zero build dependencies; compatible with GitHub Pages.
+**Privacy:** repository content is public; never include confidential employer or customer information.
