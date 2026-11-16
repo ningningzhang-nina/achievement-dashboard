@@ -96,5 +96,31 @@
       "event-impact-demand"
     ],
     "topicIds": []
+  },
+  {
+    "id": "learning-cpu-gpu-hardware-20261116",
+    "section": "hardware",
+    "category": "learning",
+    "type": "learning",
+    "title": "CPU 与 GPU：计算架构、并行与加速原理",
+    "date": "2026-11-16",
+    "points": 5,
+    "summary": "学习CPU/GPU的硬件资源组织、共享指令调度、SIMD/SIMT、Tensor、延迟与吞吐量，并结合基础预测系统评估GPU批量贝叶斯更新。",
+    "background": "学习缘起：基础预测系统约1万个instanceID，每个实例按390个出发日期顺序执行更新；同一天不同instanceID独立。为了判断同事提出的GPU矩阵批量加速是否值得实施，首先理解CPU/GPU架构差异与性能瓶颈。",
+    "process": "一、芯片资源：CPU和GPU均由运算单元(ALU/FPU)、控制单元、寄存器、缓存等电路组成。CPU侧重少量功能强大的核心、复杂控制、分支预测、乱序执行和缓存；GPU侧重大规模并行计算资源与高吞吐量内存系统。\n\n二、线程与指令：CPU具备多核、SMT和SIMD；GPU通过SM、warp（NVIDIA通常32线程）和SIMT调度大量轻量线程。同一warp可以让线程按相似指令处理不同数据，减少独立控制开销；线程出现分支分歧可能降低效率。\n\n三、延迟 vs 吞吐量：延迟是一个任务完成的时间；吞吐量是单位时间完成的任务数量。教学假设：设备A每个任务1秒、同时处理1个，吞吐量1个/秒；设备B每个任务5秒、同时处理100个，吞吐量20个/秒。B单任务更慢，但批量处理能力更高。\n\n四、Tensor：本质上是多维数组。1个instanceID的精度矩阵是23×23；1万个矩阵堆叠后是形状(10000,23,23)的三维Tensor。GPU利用大量线程并行处理多个实例的元素级更新或批量线性代数运算；Tensor本身不会自动带来加速。\n\n五、整体耗时：GPU启动与调度、CPU内存和GPU显存的数据传输也要计入总耗时；要减少频繁搬运，尽可能批量计算并让状态驻留显存。",
+    "result": "整理一份可复习的CPU/GPU学习笔记，形成CPU计算架构图、GPU的SM组织示意、Tensor及批量运算解释，并明确基础预测GPU加速需要做基准测试。完整Markdown笔记见下方参考资料。",
+    "takeaway": "GPU的核心优势是大规模并行吞吐量，而非每一个运算都比CPU快。对基础预测，约1万个instanceID相互独立，可以并行；每个instanceID内的390天具有顺序依赖。建议先分离数据库I/O与计算耗时、优化CPU线性代数及多核并行，再以端到端性能和数值一致性比较GPU。",
+    "projectIds": [],
+    "topicIds": [
+      "hardware"
+    ],
+    "references": [
+      {
+        "title": "CPU 与 GPU：计算架构、并行与加速原理（完整 Markdown 学习笔记）",
+        "year": "2026",
+        "url": "https://github.com/ningningzhang-nina/achievement-dashboard/blob/main/notes/cpu-gpu-computing.md",
+        "note": "包含CPU/GPU结构图、Tensor例子、SIMD/SIMT、延迟/吞吐量及基础预测案例。"
+      }
+    ]
   }
 ]
