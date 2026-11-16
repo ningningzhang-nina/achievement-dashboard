@@ -29,12 +29,7 @@
     "projectIds": [
       "airline-agent-simulation"
     ],
-    "topicIds": [
-      "aviation",
-      "llm",
-      "simulation",
-      "dynamic-pricing"
-    ]
+    "topicIds": []
   },
   {
     "id": "news-air-china-three-operational-pain-points-20261116",
@@ -49,14 +44,8 @@
     "process": "一、退改签：运价与产品越来越多、规则复杂，带来大量退改签咨询和办理需求。当前主要依赖人工客服，人员处理压力大，旅客甚至无法及时接通客服。\n\n二、热点事件分析：目前通过滚动播放央视新闻频道（CCTV-13）关注外部信息，但无法有效将具体新闻事件与受影响的城市、航线、客流及业务决策关联，例如判断是否需要增开航班。\n\n三、大模型与收益管理自动化：希望将业务规则通过自动化手段落地，减少收益管理依赖大量人工、长期培训且效果不稳定的问题。国航已探索智能体，起初认为搭建知识库即可，但发现实际场景复杂，历史业务数据还受到大量人工干预和污染，相关流程存在系统性问题。",
     "result": "国航反馈的是业务痛点，并非已经确定的技术方案。三类需求分别涉及复杂规则服务、外部事件驱动决策、以及受人工干预数据条件下的收益管理智能决策。",
     "takeaway": "技术分析（非国航原话）：①退改签可探索LLM理解意图、RAG检索、规则引擎确定性核算与工作流执行。②热点事件可探索事件抽取、时空/OD关联、增量需求评估与运力优化。③收益管理智能体不能只靠知识库；需要操作日志和数据治理识别人工干预，由预测与优化算法负责计算，Agent组织调用、解释与人机协同，并通过仿真验证策略。历史决策轨迹可能存在偏差，不宜直接当作最优决策样本。",
-    "projectIds": [
-      "event-impact-demand"
-    ],
-    "topicIds": [
-      "aviation",
-      "special-events",
-      "demand-forecasting"
-    ]
+    "projectIds": [],
+    "topicIds": []
   },
   {
     "id": "idea-transferable-causal-event-effects-airline-demand-20261116",
@@ -106,11 +95,6 @@
     "projectIds": [
       "event-impact-demand"
     ],
-    "topicIds": [
-      "aviation",
-      "causal-inference",
-      "demand-forecasting",
-      "special-events"
-    ]
+    "topicIds": []
   }
 ]
