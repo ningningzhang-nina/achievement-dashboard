@@ -57,5 +57,5 @@ app.innerHTML=page==="home"?shellHome():page==="projects"||page==="topics"?board
 document.title=(page==="projects"?"Projects":page==="topics"?"Topics":page==="news"?"News & Signals":page==="home"?"Research OS":"Research Detail")+" · Nini Zhang";
 window.scrollTo({top:0,behavior:"instant"});
 }
-async function load(){try{const r=await fetch("./data/achievements.json",{cache:"no-cache"});if(!r.ok)throw Error("data unavailable");const data=await r.json();if(!Array.isArray(data))throw Error("invalid data");achievements=data;}catch(e){console.warn("Achievement data unavailable:",e)}render();}
+async function load(){try{const r=await fetch("./data/achievements.json?v=20261116-fix2",{cache:"no-store"});if(!r.ok)throw Error("data unavailable");const data=await r.json();if(!Array.isArray(data))throw Error("invalid data");achievements=data;}catch(e){console.error("Achievement data unavailable:",e);app.innerHTML='<div class="notfound"><h1>数据加载失败</h1><p>请刷新页面。如果问题持续，请检查 GitHub Pages 部署。</p></div>';return;}render();}
 window.addEventListener("hashchange",render);load();
