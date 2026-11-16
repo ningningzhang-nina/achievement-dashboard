@@ -40,5 +40,51 @@
     "process": "一、退改签：运价与产品越来越多、规则复杂，带来大量退改签咨询和办理需求。当前主要依赖人工客服，人员处理压力大，旅客甚至无法及时接通客服。\n\n二、热点事件分析：目前通过滚动播放央视新闻频道（CCTV-13）关注外部信息，但无法有效将具体新闻事件与受影响的城市、航线、客流及业务决策关联，例如判断是否需要增开航班。\n\n三、大模型与收益管理自动化：希望将业务规则通过自动化手段落地，减少收益管理依赖大量人工、长期培训且效果不稳定的问题。国航已探索智能体，起初认为搭建知识库即可，但发现实际场景复杂，历史业务数据还受到大量人工干预和污染，相关流程存在系统性问题。",
     "result": "国航反馈的是业务痛点，并非已经确定的技术方案。三类需求分别涉及复杂规则服务、外部事件驱动决策、以及受人工干预数据条件下的收益管理智能决策。",
     "takeaway": "技术分析（非国航原话）：①退改签可探索LLM理解意图、RAG检索、规则引擎确定性核算与工作流执行。②热点事件可探索事件抽取、时空/OD关联、增量需求评估与运力优化。③收益管理智能体不能只靠知识库；需要操作日志和数据治理识别人工干预，由预测与优化算法负责计算，Agent组织调用、解释与人机协同，并通过仿真验证策略。历史决策轨迹可能存在偏差，不宜直接当作最优决策样本。"
+  },
+  {
+    "id": "idea-transferable-causal-event-effects-airline-demand-20261116",
+    "section": "aviation",
+    "category": "research",
+    "type": "idea",
+    "title": "从历史事件因果效应预测未来航空需求：研究Idea",
+    "date": "2026-11-16",
+    "points": 5,
+    "summary": "国航热点新闻场景启发：从历史事件的反事实需求增量中学习可迁移规律，在新事件刚被报道时预测不同OD及未来日期的需求冲击，并服务运力与定价决策。",
+    "background": "Idea产生（2026-11-16）：国航通过CCTV-13了解新闻事件，但缺少事件到航线需求和运营动作之间的量化关联。目标不是事后解释某个事件造成的变化，而是在事件刚出现、影响尚未充分显现时，就预测其未来影响。研究定位：Event Impact Prediction / Transferable Causal Effects for Airline Demand Forecasting。此处是拟研究方向，非已验证成果。",
+    "process": "研究问题：能否先为历史事件估计潜在需求的反事实增量，再依据事件语义和属性、OD市场、订票提前期等特征，迁移预测未见过的新闻事件？\n\n拟议路线：\n① 建立历史事件库：分类演唱会/体育活动、灾害、政策、交通替代及突发公共事件；记录首次公告时间、地点、规模、持续时间、受影响区域和信息更新轨迹，避免未来信息泄漏。\n② 估计历史因果效应：探索DiD、合成控制、Bayesian Structural Time Series等，在适用识别假设下构造无事件反事实需求；纳入价格、库存限制、航司人工干预和竞品变化，明确潜在需求与已实现销量不同。\n③ 训练跨事件影响预测模型：τ̂(e,od,t)=fθ(事件语义与属性, OD特征, 时间/提前期)，考虑分层贝叶斯或迁移学习，并传递因果标签估计的不确定性。\n④ 面向最新新闻做动态更新：新闻识别→事件分类与信息抽取→影响航线映射→分OD/日期增量需求及区间预测→增班、调价或库存管理的候选策略。\n⑤ 严格验证：使用Leave-One-Event-Out和按公告时间滚动的样本外实验；比较传统节假日哑变量、普通事件特征预测、非因果标签方法与因果效应迁移模型；评估需求误差、区间校准以及仿真下的决策收益。",
+    "result": "当前仅记录研究构想，尚未开展实验或证明创新性。初步可探索的论文题目：Learning Transferable Causal Effects of External Events for Airline Demand Forecasting。下一步先确认国航是否具有多年的事件、OD需求、运价、库存及人工操作日志；检查是否有足够独立事件和可信对照组。",
+    "takeaway": "潜在创新点：①历史因果效应作学习目标，而非将受库存/价格干预的销量直接当标签；②跨事件、跨OD迁移至未知事件；③事件刚发生时的信息不完备与不确定性更新；④将因果需求预测接入RM/DP运力决策。边界：从历史估计的因果效应本身可能有偏；可迁移性需满足跨场景条件，不能预设因果识别成功。单纯“新闻分类+需求预测”已有相关文献，能否发表取决于方法差异、识别可信度与真实样本外证据。",
+    "references": [
+      {
+        "title": "Using Data From the Web to Predict Public Transport Arrivals Under Special Events Scenarios — Pereira, Rodrigues & Ben-Akiva",
+        "year": "2015",
+        "url": "https://doi.org/10.1080/15472450.2013.868284",
+        "note": "最贴近“读取事件消息→预测交通需求”；利用网络活动信息估计特殊活动客流，是事件特征预测的重要先行研究。"
+      },
+      {
+        "title": "Public Transit for Special Events: Ridership Prediction and Train Scheduling — Santanam et al.",
+        "year": "2024",
+        "url": "https://doi.org/10.1109/TITS.2024.3373634",
+        "note": "特殊活动客流预测与列车排班优化；为事件预测接入航空运力调整提供可比较的研究框架。"
+      },
+      {
+        "title": "Transfer Estimates for Causal Effects Across Heterogeneous Sites",
+        "year": "2026",
+        "url": "https://doi.org/10.1016/j.jeconom.2026.106250",
+        "note": "Journal of Econometrics；跨异质场景外推因果效应的方法参考，非航空研究，需检验其假设是否适用事件迁移。"
+      },
+      {
+        "title": "Predicting Traffic Volumes and Estimating the Effects of Shocks in Massive Transportation Systems — Silva, Kang & Airoldi",
+        "year": "2015",
+        "url": "https://doi.org/10.1073/pnas.1412908112",
+        "note": "PNAS；利用历史运输扰动预测未见过的冲击场景，说明冲击泛化本身已有先例。"
+      },
+      {
+        "title": "Demand Change Detection in Airline Revenue Management",
+        "year": "2022",
+        "url": "https://doi.org/10.1057/s41272-022-00385-8",
+        "note": "Journal of Revenue and Pricing Management；检测航空需求已发生的冲击，可与“新闻出现时提前预测尚未显现的影响”形成研究问题对照。"
+      }
+    ]
   }
 ]
