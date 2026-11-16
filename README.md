@@ -6,7 +6,8 @@ Personal research notes and progress tracker. Built with vanilla HTML, CSS, and 
 
 - **Home**: overview and latest activity
 - **Projects** (`#/projects`): independent research objectives, each with a score and scrollable progress log
-- **Topics** (`#/topics`): cross-cutting knowledge areas, each with a score and scrollable progress log
+- **Topics** (`#/topics`): currently empty; reserved for independent learning progress
+- **News & Notes** (`#/news`): standalone industry and business notes (0 XP), excluded from projects and topics
 - **Details**: every progress entry has a permanent `#/task/<id>` route; projects and topics have detail pages
 
 ## Data
