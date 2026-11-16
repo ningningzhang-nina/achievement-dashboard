@@ -48,3 +48,8 @@ main{max-width:1210px;width:calc(100% - 48px);margin:auto;min-height:calc(100vh 
 
 .idea-status{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.04em;color:#52725b}
 .paper-list{margin:12px 0 0;padding-left:21px}.paper-list li{margin-bottom:18px;line-height:1.6}.paper-list a{text-decoration:underline;text-underline-offset:3px;color:#44614b;font-weight:500}.paper-list span{font-size:11px;color:#8a9086}.paper-list p{margin:4px 0 0;font-size:12px;color:#667066}
+
+/* Five compact columns on the aviation dashboard; AI stays four columns. */
+.board:has(.lane:nth-child(5)){grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media(max-width:1050px){.board:has(.lane:nth-child(5)){grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:620px){.board:has(.lane:nth-child(5)){grid-template-columns:1fr}}
