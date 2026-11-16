@@ -1,5 +1,33 @@
 [
   {
+    "id": "idea-llm-multi-agent-airline-market",
+    "section": "ai",
+    "category": "llm",
+    "type": "idea",
+    "title": "LLM 多智能体航空市场仿真：Idea 的产生",
+    "date": "2026-11-16",
+    "points": 0,
+    "summary": "受到量化交易多Agent市场模拟的启发，探索用LLM旅客Agent构建航空收益管理与动态定价仿真环境。",
+    "background": "2026年11月16日，讨论量化交易中利用数百个Agent模拟市场的观点时，想到正在规划的航空市场仿真平台：能否利用大模型Agent模拟具有不同偏好、预算、出行目的的真实旅客，让他们在不同价格、航班和竞争环境中选择购买、等待或放弃？此处记录研究Idea的发生，尚未实施。",
+    "process": "初步考虑混合架构：传统统计模型和历史数据校准需求及客群分布；LLM旅客Agent生成复杂行为；仿真引擎执行搜索、报价、购买、库存变化等市场规则；定价算法在环境中进行策略验证。先以一个OD为场景，对比MNL/Mixed Logit与LLM-Agent的价格弹性、选择份额及收益响应，并进行样本外验证。",
+    "result": "当前状态：Idea，未开始实验。计划先阅读两篇相关论文，再设计小规模基线对照实验。",
+    "takeaway": "LLM生成的市场不等于真实市场；重点验证行为校准与反事实价格响应。缺少未购买或搜索曝光数据的问题不能依靠LLM自动解决。",
+    "references": [
+      {
+        "title": "Can Large Language Models Mimic Airline Passenger Preferences?",
+        "year": "2025",
+        "url": "https://doi.org/10.1016/j.ait.2025.100034",
+        "note": "以23个LLM模拟航空旅客选择，分析WTP与客群异质性及文化偏差。"
+      },
+      {
+        "title": "When AI Agents Buy the Ticket: The Impact of Agentic AI on Airline Pricing and Revenue Management",
+        "year": "2026",
+        "url": "https://papers.ssrn.com/sol3/Delivery.cfm/a8b54b70-59ac-42ee-99e2-f5729199dc83-MECA.pdf?abstractid=7447372&mirid=1&type=2",
+        "note": "研究AI购票Agent对航司需求分配、价格敏感度、收益和定价的影响。"
+      }
+    ]
+  },
+  {
     "id": "demo-ml",
     "section": "ai",
     "category": "ml",
