@@ -1,4 +1,5 @@
 const PROJECTS=[
+{id:"jrpm-passenger-choice-review",title:"航空动态定价旅客选择模型综述（JRPM）",en:"PASSENGER CHOICE MODELS · JRPM",description:"Passenger Choice Models for Airline Dynamic Pricing: A Review from Theory to Practice；JRPM 二轮大修中，已汇总审稿意见并确定修改优先级。",status:"Major Revision",topics:[]},
 {id:"event-impact-demand",title:"从历史事件因果效应预测未来航空需求",en:"EVENT IMPACT & AIRLINE DEMAND",description:"从历史事件的因果效应预测新事件对航空 OD 需求的影响。",status:"Idea",topics:[]},
 {id:"airline-agent-simulation",title:"LLM 多智能体航空市场仿真",en:"AIRLINE MARKET SIMULATION",description:"探索基于旅客 Agent 的航空定价与收益管理仿真环境。",status:"Idea",topics:[]}
 ];
