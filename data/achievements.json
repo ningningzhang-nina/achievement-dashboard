@@ -1,5 +1,41 @@
 [
   {
+    "id": "rm-demand-forecast-database-io-20261117",
+    "section": "aviation",
+    "category": "development",
+    "type": "progress",
+    "title": "需求预测性能：空跑实验与数据库读写优化",
+    "date": "2026-11-17",
+    "points": 5,
+    "summary": "同事比较不执行核心计算的空跑与正常运行，发现耗时主要集中在数据库读写相关流程；已有针对性优化并缩短运行时间。",
+    "background": "RM 系统需求预测整体耗时较长。开发人员做空跑（跳过核心算法计算）与正常计算的对照实验，发现两者耗时接近，推断数据读写相关环节占主要时间。",
+    "process": "1. 总耗时可拆分为读取、数据预处理、算法计算、写入、网络与调度等。空跑时间并不等同于纯数据库 I/O 时间，应在关键节点分别计时。\n2. 可能的优化包括：按批量读取多个 InstanceID、批量写入与批量事务提交、减少重复 SQL 与网络往返、改进索引与查询执行计划、内存缓存复用数据、必要时合理并发。\n3. 原架构是否逐个 InstanceID 读—算—写、实际数据库类型和已采用的优化措施，仍需向开发人员核实。\n4. 应记录优化前后总耗时、read/prepare/compute/write 各阶段占比、SQL 调用次数以及吞吐量。",
+    "result": "同事反馈数据库读写优化后需求预测运行时间已缩短；具体优化手段、分段耗时和提升幅度尚未获得。",
+    "takeaway": "系统运行慢不必然是预测算法慢。应遵循先性能剖析、再定位瓶颈、最后实施优化的流程；数据库瓶颈消除后重新测量新的主要耗时环节。",
+    "projectIds": [
+      "airline-revenue-management-development"
+    ],
+    "topicIds": []
+  },
+  {
+    "id": "rm-dp-python-c-performance-20261117",
+    "section": "aviation",
+    "category": "development",
+    "type": "progress",
+    "title": "动态规划性能：Python 与 C 的执行效率差异",
+    "date": "2026-11-17",
+    "points": 5,
+    "summary": "RM 动态规划由纯 Python 改为 C 后运行明显加速；厘清 CPython 解释器、底层 C 计算库、CPU 与 GPU 的区别。",
+    "background": "RM 系统动态规划最初以 Python 实现，运行较慢；开发人员改写为 C 后速度明显提升。同事认为 Python 底层由 C 实现，且机器学习普遍使用 Python，因此不应存在显著性能差距。",
+    "process": "1. CPython 的解释器主要由 C 实现，但普通 Python 代码仍经历字节码解释、动态类型和对象操作；C 代码通常直接编译为机器码。\n2. 纯 Python 的多层循环、状态遍历、价值函数更新，可能产生明显解释器开销；改成 C 可减少这些开销，并受益于编译器优化。\n3. NumPy 在 CPU 上即可调用底层高性能编译库；PyTorch 也可调用 GPU 内核。Python 在机器学习中表现良好，不代表普通 Python 循环本身快。\n4. GPU 加速还需考虑数据传输与内核启动成本，CPU/GPU 和 Python/C 是两个不同的比较维度。\n5. 后续可用 profiler 对比纯 Python、Numba、C/C++ 的实现并测量实际加速比。",
+    "result": "已明确性能差异的主要技术原因；开发人员反馈 C 实现明显更快，但尚无可核验的基准测试数据或实际加速倍数。",
+    "takeaway": "先测量瓶颈，再针对计算密集部分优化；实现语言带来的常数级优化与状态空间引发的算法复杂度问题须分别处理。",
+    "projectIds": [
+      "airline-revenue-management-development"
+    ],
+    "topicIds": []
+  },
+  {
     "id": "jrpm-review-revision-plan-20261117",
     "section": "aviation",
     "category": "research",
