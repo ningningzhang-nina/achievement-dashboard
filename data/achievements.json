@@ -1,5 +1,23 @@
 [
   {
+    "id": "jrpm-review-revision-plan-20261117",
+    "section": "aviation",
+    "category": "research",
+    "type": "progress",
+    "title": "JRPM 综述大修：审稿意见汇总与修改优先级",
+    "date": "2026-11-17",
+    "points": 5,
+    "summary": "论文《Passenger Choice Models for Airline Dynamic Pricing: A Review from Theory to Practice》投稿于 Journal of Revenue and Pricing Management（JRPM），目前第二轮 Major Revision；已完成全部审稿意见汇总与修改顺序制定，正在推进修回。",
+    "background": "研究项目：航空动态定价中的旅客选择模型综述。投稿期刊：Journal of Revenue and Pricing Management (JRPM)。当前进度：第二轮大修（Major Revision）；修回截止日期：2026-12-10。已完成阶段性工作：汇总所有审稿意见、梳理任务并确定四级修改优先级。以下内容是修回计划，尚不代表四类修改已完成。",
+    "process": "修改审稿意见的顺序（按优先级从高到低）：\n\n1. 文献补充（最高优先级）：回应审稿人2，重点加入 stated choice / stated preference 相关研究，并补齐遗漏的关键文献。这涉及综述覆盖范围和文献证据基础，优先处理。\n\n2. 框架与方法评价：逐条回应审稿人对论文提出的分类框架、研究方法及相关论断的评价或质疑；明确每一项判断的依据、边界和解释，必要时修订原有表述。\n\n3. 定量化与实证支持：现有框架较偏概念性，补充可操作、可量化的评价指标，并基于这些指标增加实证案例或示例，以提高框架的可检验性和应用价值。\n\n4. 细节修订（最后处理）：统一术语、表格、格式、引用及其他次要修改，在核心内容稳定后完成通篇校对。",
+    "result": "截至2026-11-17：已完成①全部审稿意见汇总；②四级修改优先级确定。正文修订、补充文献、量化指标及实证示例仍属于后续任务；2026-12-10前需提交修回稿及逐条审稿回复。",
+    "takeaway": "先解决影响论文证据完整性与核心框架可信度的问题，再处理概念框架的定量支撑，最后处理文字和格式细节。优先回应审稿人2的 stated choice 和关键文献要求；将每条审稿意见与正文修改、回复信对应起来。",
+    "projectIds": [
+      "jrpm-passenger-choice-review"
+    ],
+    "topicIds": []
+  },
+  {
     "id": "idea-llm-multi-agent-airline-market",
     "section": "ai",
     "category": "llm",
