@@ -1,4 +1,5 @@
 const PROJECTS=[
+{id:"pods-v10-simulation",title:"PODS 航空市场仿真与动态定价验证",en:"PODS · MARKET SIMULATION & DP VALIDATION",description:"以真实 Shopping/验价数据校准具有可控 Ground Truth 的虚拟航空市场；独立验证旅客选择模型、动态定价和强化学习策略。",status:"In Progress",topics:[]},
 {id:"airline-revenue-management-development",title:"民航收益管理项目开发",en:"AIRLINE REVENUE MANAGEMENT · DEVELOPMENT",description:"记录收益管理系统 RM/DP 开发中的技术问题、性能瓶颈定位与工程优化实践。",status:"In Progress",topics:[]},
 {id:"jrpm-passenger-choice-review",title:"航空动态定价旅客选择模型综述（JRPM）",en:"PASSENGER CHOICE MODELS · JRPM",description:"Passenger Choice Models for Airline Dynamic Pricing: A Review from Theory to Practice；JRPM 二轮大修中，已汇总审稿意见并确定修改优先级。",status:"Major Revision",topics:[]},
 {id:"event-impact-demand",title:"从历史事件因果效应预测未来航空需求",en:"EVENT IMPACT & AIRLINE DEMAND",description:"从历史事件的因果效应预测新事件对航空 OD 需求的影响。",status:"Idea",topics:[]},
