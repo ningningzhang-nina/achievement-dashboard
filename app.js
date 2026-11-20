@@ -1,4 +1,5 @@
 const PROJECTS=[
+{id:"air-china-long-term-pricing",title:"国航长期定价",en:"AIR CHINA · LONG-TERM ROUND-TRIP PRICING",description:"基于旅客支付意愿与运价规则约束，优化国际航线往返长期运价结构；记录航司反馈、数据需求和模型迭代。",status:"In Progress",topics:[]},
 {id:"pods-v10-simulation",title:"PODS 航空市场仿真与动态定价验证",en:"PODS · MARKET SIMULATION & DP VALIDATION",description:"以真实 Shopping/验价数据校准具有可控 Ground Truth 的虚拟航空市场；独立验证旅客选择模型、动态定价和强化学习策略。",status:"In Progress",topics:[]},
 {id:"airline-revenue-management-development",title:"民航收益管理项目开发",en:"AIRLINE REVENUE MANAGEMENT · DEVELOPMENT",description:"记录收益管理系统 RM/DP 开发中的技术问题、性能瓶颈定位与工程优化实践。",status:"In Progress",topics:[]},
 {id:"jrpm-passenger-choice-review",title:"航空动态定价旅客选择模型综述（JRPM）",en:"PASSENGER CHOICE MODELS · JRPM",description:"Passenger Choice Models for Airline Dynamic Pricing: A Review from Theory to Practice；JRPM 二轮大修中，已汇总审稿意见并确定修改优先级。",status:"Major Revision",topics:[]},
@@ -60,5 +61,5 @@ app.innerHTML=page==="home"?shellHome():page==="projects"||page==="topics"?board
 document.title=(page==="projects"?"Projects":page==="topics"?"Topics":page==="news"?"News & Signals":page==="home"?"Research OS":"Research Detail")+" · Nini Zhang";
 window.scrollTo({top:0,behavior:"instant"});
 }
-async function load(){try{const r=await fetch("./data/achievements.json?v=20261117-rm-development-v2",{cache:"no-store"});if(!r.ok)throw Error("data unavailable");const data=await r.json();if(!Array.isArray(data))throw Error("invalid data");achievements=data;}catch(e){console.error("Achievement data unavailable:",e);app.innerHTML='<div class="notfound"><h1>数据加载失败</h1><p>请刷新页面。如果问题持续，请检查 GitHub Pages 部署。</p></div>';return;}render();}
+async function load(){try{const r=await fetch("./data/achievements.json?v=20261120-air-china-long-term-pricing",{cache:"no-store"});if(!r.ok)throw Error("data unavailable");const data=await r.json();if(!Array.isArray(data))throw Error("invalid data");achievements=data;}catch(e){console.error("Achievement data unavailable:",e);app.innerHTML='<div class="notfound"><h1>数据加载失败</h1><p>请刷新页面。如果问题持续，请检查 GitHub Pages 部署。</p></div>';return;}render();}
 window.addEventListener("hashchange",render);load();
