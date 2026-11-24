@@ -83,3 +83,35 @@ main{max-width:1210px;width:calc(100% - 48px);margin:auto;min-height:calc(100vh 
 @media(max-width:620px){.depth-manifesto{grid-template-columns:1fr}.depth-drawing{height:auto;max-height:175px}}
 
 .empty-state{border-top:1px solid var(--rule);padding:30px 0 65px;color:var(--muted)}.empty-state h2{font:500 22px var(--serif);color:var(--text);margin:0 0 6px}.empty-state p{margin:0;font-size:12px}.news-list{border-top:1px solid var(--rule);max-width:900px;margin-bottom:50px}.news-list .task-card{padding:15px 0}.project-grid:has(.project-tile:nth-child(3)){grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:720px){.project-grid:has(.project-tile:nth-child(3)){grid-template-columns:1fr}}
+
+
+/* Engineering principles and structured technical decision journal */
+.principles-tabs{display:flex;gap:22px;border-bottom:1px solid var(--rule);padding:4px 0 13px;margin-bottom:23px}
+.principles-tabs a{font-size:12px;color:#52725b}
+.principles-section,.journal-section{max-width:950px;padding-bottom:30px;scroll-margin-top:80px}
+.principle-card{display:grid;grid-template-columns:66px minmax(0,1fr);gap:20px;border-top:1px solid var(--rule);padding:20px 0 26px}
+.principle-num{font:400 30px var(--serif);color:#a5b3a4}
+.principle-main h2{font:500 25px/1.3 var(--serif);margin:0 0 9px}
+.principle-main h2 small{display:block;color:#788579;font:12px/1.8 var(--sans);margin-top:2px}
+.principle-question{font-size:12px;color:#6f776e;margin:0 0 12px}
+.principle-intro{border-left:2px solid var(--accent);padding:7px 13px;background:#f0f2ea;line-height:1.85}
+.principle-empty{font-size:12px;color:#9a9e96;padding:16px 0}
+.principle-event{border:1px solid var(--rule);padding:18px 20px;background:#fbfaf6;margin:13px 0 0}
+.principle-event-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.principle-event h3,.journal-entry h3{font:500 18px/1.5 var(--serif);margin:0}
+.event-status{font-size:10px;color:#658069;border:1px solid #cdd9c9;padding:2px 7px}
+.event-field{display:grid;grid-template-columns:106px minmax(0,1fr);gap:8px;margin-top:12px}
+.event-field strong{font-weight:500;font-size:11px;color:#718072}
+.event-field p{margin:0;font-size:12px;line-height:1.85;color:#4b554d;white-space:pre-wrap}
+.journal-explain{color:#788076;font-size:12px;line-height:1.8}
+.journal-entry{border-top:1px solid var(--rule);padding:20px 0}
+.journal-entry h3{margin:9px 0 15px}
+.journal-meta{display:flex;gap:12px;align-items:center;font-size:11px;color:#818b80;flex-wrap:wrap}
+.journal-template{border-top:1px solid var(--rule);padding:18px 0 28px}
+.journal-template h3{font:500 19px var(--serif);margin:0 0 13px}
+.template-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.template-grid>div{border:1px solid var(--rule);padding:10px;display:flex;flex-direction:column;gap:3px}
+.template-grid strong{font-size:12px;font-weight:600}
+.template-grid span,.journal-template p{font-size:11px;color:#778176;line-height:1.65}
+.site-nav{gap:12px}.site-nav nav{gap:16px}
+@media(max-width:760px){.site-nav{height:auto;min-height:53px;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}.site-nav nav{overflow:auto;max-width:100%;gap:13px}.site-nav nav a{white-space:nowrap}.principle-card{grid-template-columns:36px 1fr;gap:12px}.principle-num{font-size:22px}.event-field{grid-template-columns:1fr;gap:1px}.template-grid{grid-template-columns:1fr}}
