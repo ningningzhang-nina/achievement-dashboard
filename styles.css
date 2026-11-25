@@ -115,3 +115,16 @@ main{max-width:1210px;width:calc(100% - 48px);margin:auto;min-height:calc(100vh 
 .template-grid span,.journal-template p{font-size:11px;color:#778176;line-height:1.65}
 .site-nav{gap:12px}.site-nav nav{gap:16px}
 @media(max-width:760px){.site-nav{height:auto;min-height:53px;flex-wrap:wrap;padding-top:9px;padding-bottom:9px}.site-nav nav{overflow:auto;max-width:100%;gap:13px}.site-nav nav a{white-space:nowrap}.principle-card{grid-template-columns:36px 1fr;gap:12px}.principle-num{font-size:22px}.event-field{grid-template-columns:1fr;gap:1px}.template-grid{grid-template-columns:1fr}}
+
+/* Project-first decision principles */
+.project-principles-reminder{border:1px solid #cbd5c8;background:#f1f4ed;padding:17px 19px;margin:0 0 25px}
+.reminder-heading{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.reminder-heading h2{font:500 22px/1.4 var(--serif);margin:5px 0}
+.reminder-heading p{color:#6d796c;font-size:12px;margin:0}
+.reminder-link{font-size:12px;font-weight:600;color:#426447;white-space:nowrap}
+.reminder-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-top:15px}
+.reminder-grid>div{border-top:1px solid #bdcbbb;padding:8px 2px 0;display:flex;flex-direction:column;gap:3px}
+.reminder-grid strong{font-size:12px;color:#426447}
+.reminder-grid span{font-size:11px;color:#687567;line-height:1.55}
+@media(max-width:850px){.reminder-heading{align-items:start;flex-direction:column}.reminder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reminder-link{white-space:normal}}
+@media(max-width:480px){.reminder-grid{grid-template-columns:1fr}}
