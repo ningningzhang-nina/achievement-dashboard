@@ -128,3 +128,10 @@ main{max-width:1210px;width:calc(100% - 48px);margin:auto;min-height:calc(100vh 
 .reminder-grid span{font-size:11px;color:#687567;line-height:1.55}
 @media(max-width:850px){.reminder-heading{align-items:start;flex-direction:column}.reminder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.reminder-link{white-space:normal}}
 @media(max-width:480px){.reminder-grid{grid-template-columns:1fr}}
+
+/* SOLID reminder: upper-right of Projects only */
+.projects-head{position:relative;min-height:160px;padding-right:clamp(180px,35vw,470px)}
+.solid-watermark{position:absolute;right:0;top:14px;text-align:right;font:600 clamp(74px,10vw,148px)/.9 var(--serif);letter-spacing:-.065em;color:#52725b;user-select:none;pointer-events:none}
+.solid-watermark small{display:block;margin-top:13px;font:500 10px/1.4 var(--sans);letter-spacing:.17em;color:#79907b}
+@media(max-width:760px){.projects-head{min-height:140px;padding-right:35%}.solid-watermark{font-size:clamp(43px,11vw,80px);top:27px}.solid-watermark small{font-size:7px;letter-spacing:.08em}}
+@media(max-width:480px){.projects-head{padding-right:0;padding-top:110px;min-height:0}.solid-watermark{left:0;right:auto;top:18px;text-align:left;font-size:83px}}
