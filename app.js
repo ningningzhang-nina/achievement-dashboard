@@ -37,11 +37,20 @@ function shellHome(){
  '<section class="home-projects"><div class="section-title"><h2>研究目录</h2><span class="right">Explore</span></div><div class="project-grid">'+tile("Projects","01","#/projects","围绕具体研究目标，持续记录 Idea、实验和成果。",PROJECTS)+tile("Topics","02","#/topics","按知识主题整理学习记录与复习笔记。",TOPICS)+tile("News & Signals / 消息面","03","#/news","私人记录 · 需 GitHub 账户授权访问。",[])+'</div></section>'+
  '<section class="recent-section"><div class="section-title"><h2>最近记录</h2><span class="right">'+xp(achievements)+' XP · '+achievements.length+' entries</span></div><div class="recent-list">'+recent.map(x=>'<a class="recent-row" href="'+href(x)+'"><time>'+esc(x.date)+'</time><strong>'+esc(x.title)+'</strong><span>'+(x.type==="news"?"记录":x.type==="idea"?"IDEA":"进展")+'</span><i>→</i></a>').join("")+'</div></section>';
 }
+function projectStartReminder(){
+  const questions=[
+    ["为什么发现这个问题？","记录最初的信号，以及它如何指向这个问题。"],
+    ["为什么值得解决？","说明它影响谁、影响哪个指标，以及为什么值得优先做。"],
+    ["为什么选择这个方案？","列出考虑过的方案，以及做取舍时用到的证据和约束。"],
+    ["如何证明创造了价值？","动手前定好基线、衡量指标和验证方法。"]
+  ];
+  return '<section class="project-principles-reminder" aria-labelledby="project-start-questions"><div class="reminder-heading"><h2 id="project-start-questions">每个项目开始前，先回答这四个问题</h2></div><div class="template-grid">'+questions.map(([question,prompt])=>'<div><strong>'+esc(question)+'</strong><span>'+esc(prompt)+'</span></div>').join('')+'</div></section>';
+}
 function projectPrinciplesReminder(){const checks=[["Low Ego","是否愿意接受不同证据？"],["Honest","是否区分事实、经验与假设？"],["Solid","实验和结果能否复现？"],["Right Thing","是否改善长期决策？"],["Co-design","是否与业务和工程共同设计？"]];return '<section class="project-principles-reminder"><div class="reminder-heading"><div><span class="eyebrow">BEFORE A PROJECT DECISION</span><h2>先审视原则，再做技术决策</h2><p>新增项目记录前，用五个问题检查方案；重大取舍应留下决策日志。</p></div><a class="reminder-link" href="#/projects/principles">查看五项原则与决策日志 →</a></div><div class="reminder-grid">'+checks.map(([name,q])=>'<div><strong>'+esc(name)+'</strong><span>'+esc(q)+'</span></div>').join('')+'</div></section>';}
 function board(kind){
 if(kind==="topics"){const items=TOPICS;return '<section class="dashboard-head"><a class="back" href="#/">← 返回首页</a><div class="eyebrow">RESEARCH / TOPICS</div><h1>Topics · 知识主题</h1><p>按主题积累学习笔记，每条新增进展默认 +5 XP。</p><div class="summary-band"><div class="metric"><strong>'+xp(achievements.filter(x=>x.type!=="news"))+'</strong><span>全站 XP</span></div><div class="metric"><strong>'+items.length+'</strong><span>主题</span></div></div></section><div class="board topics-board">'+items.map((p,i)=>card(p,"topic",i,items.length)).join("")+'</div>';}
 const items=PROJECTS;
-return '<section class="dashboard-head projects-head"><div class="solid-watermark" aria-label="SOLID：深入、扎实、经得住追问">SOLID<small>GO DEEP · STAND UP TO SCRUTINY</small></div><a class="back" href="#/">← 返回首页</a><div class="eyebrow">RESEARCH / PROJECTS</div><h1>Projects · 研究项目</h1><p>按研究目标持续记录 Idea、实验与成果。</p><div class="summary-band"><div class="metric"><strong>'+xp(achievements)+'</strong><span>总 XP</span></div><div class="metric"><strong>'+items.length+'</strong><span>项目</span></div></div></section>'+projectPrinciplesReminder()+'<div class="board projects-board">'+items.map((p,i)=>card(p,"project",i,items.length)).join("")+'</div>';
+return '<section class="dashboard-head projects-head"><div class="solid-watermark" aria-label="SOLID：深入、扎实、经得住追问">SOLID<small>GO DEEP · STAND UP TO SCRUTINY</small></div><a class="back" href="#/">← 返回首页</a><div class="eyebrow">RESEARCH / PROJECTS</div><h1>Projects · 研究项目</h1><p>按研究目标持续记录 Idea、实验与成果。</p><div class="summary-band"><div class="metric"><strong>'+xp(achievements)+'</strong><span>总 XP</span></div><div class="metric"><strong>'+items.length+'</strong><span>项目</span></div></div></section>'+projectStartReminder()+projectPrinciplesReminder()+'<div class="board projects-board">'+items.map((p,i)=>card(p,"project",i,items.length)).join("")+'</div>';
 }
 function entityDetail(kind,id){
 const project=kind==="project",obj=(project?PROJECTS:TOPICS).find(x=>x.id===id);
