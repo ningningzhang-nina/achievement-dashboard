@@ -1,4 +1,5 @@
 const PROJECTS=[
+{"id":"pros-data-driven-bid-price","title":"PROS 数据驱动 Bid Price 预测研究","en":"PROS · DATA-DRIVEN BID PRICE GENERATION","description":"研究 PROS 利用历史订座与成交数据，通过启发式标签构造和神经网络直接预测 Bid Price 的方法；评估其对现有 RM 网络优化与 BP 计算的借鉴价值。","status":"待读 · Literature Review","topics":[]},
 {"id":"weekly-algorithm-interview-intelligence","title":"算法面经每周整理与自动采集","en":"WEEKLY ALGORITHM INTERVIEW INTELLIGENCE","description":"每周增量整理真实算法面经，形成可追溯题库与项目深挖训练素材。小红书单篇POC已完成，暂缓推进；重启后优先验证多平台采集和批量稳定性。","status":"Paused · POC validated","topics":[]},
 {id:"air-china-long-term-pricing",title:"国航长期定价",en:"AIR CHINA · LONG-TERM ROUND-TRIP PRICING",description:"基于旅客支付意愿与运价规则约束，优化国际航线往返长期运价结构；记录航司反馈、数据需求和模型迭代。",status:"In Progress",topics:[]},
 {id:"pods-v10-simulation",title:"PODS 航空市场仿真与动态定价验证",en:"PODS · MARKET SIMULATION & DP VALIDATION",description:"以真实 Shopping/验价数据校准具有可控 Ground Truth 的虚拟航空市场；独立验证旅客选择模型、动态定价和强化学习策略。",status:"In Progress",topics:[]},
