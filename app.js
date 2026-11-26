@@ -1,4 +1,5 @@
 const PROJECTS=[
+{"id":"solid-visible-technical-influence","title":"技术影响力建设：Solid + Visible","en":"TECHNICAL INFLUENCE · SOLID + VISIBLE","description":"持续输出有深度的技术博客、开源代码与 Skills，通过 X、LinkedIn 和 GitHub 扩大传播。把技术能力沉淀为公开、可验证、可持续积累的个人资产，支持技术负责人岗位求职，并增加被主动联系的机会。下一步是等有时间时启动，选定第一项公开产出。","status":"Idea · 待启动","topics":[]},
 {"id":"algorithm-engineering-standards","title":"算法研发规范与民航数据审查 Skills","en":"ALGORITHM ENGINEERING · AVIATION DATA AUDIT","description":"建立六阶段算法研发规范、可执行 Agent Skills 与可复用数据审查工具；从问题定义、数据理解到模型选型、研发、验证和部署。","status":"In Progress · 规范 V0.3 / Skill 待开发","topics":[]},
 {"id":"pros-data-driven-bid-price","title":"PROS 数据驱动 Bid Price 预测研究","en":"PROS · DATA-DRIVEN BID PRICE GENERATION","description":"研究 PROS 利用历史订座与成交数据，通过启发式标签构造和神经网络直接预测 Bid Price 的方法；评估其对现有 RM 网络优化与 BP 计算的借鉴价值。","status":"待读 · Literature Review","topics":[]},
 {"id":"weekly-algorithm-interview-intelligence","title":"算法面经每周整理与自动采集","en":"WEEKLY ALGORITHM INTERVIEW INTELLIGENCE","description":"每周增量整理真实算法面经，形成可追溯题库与项目深挖训练素材。小红书单篇POC已完成，暂缓推进；重启后优先验证多平台采集和批量稳定性。","status":"Paused · POC validated","topics":[]},
