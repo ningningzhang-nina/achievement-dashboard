@@ -1,5 +1,159 @@
 [
   {
+    "id": "algorithm-engineering-standards-principles-20261126",
+    "section": "aviation",
+    "category": "engineering",
+    "type": "progress",
+    "title": "已完成｜算法研发原则与规范 V0.3",
+    "date": "2026-11-26",
+    "points": 5,
+    "summary": "已形成 Word/Markdown V0.3 框架，收录两条原则。",
+    "background": "建立算法学习小组的共同研发语言与质量标准。",
+    "process": "P01 简单方法优先：先考虑启发式规则或简单统计方法；检查数据是否足够、复杂模型增量价值及维护成本。P02 问题定义先于算法介绍：说明已有历史数据、实际可用输入、适用条件、目标输出及业务用途；训练数据与预测时可用信息必须区分。",
+    "result": "已确定六阶段章节：问题定义→数据审查→模型选型→模型研发→模型验证→生产部署；预留阶段交付物及准入条件。仅前两条原则已有实质内容，其余章节待补充。",
+    "takeaway": "依据：Google Rule 1 与实际汇报经验；六阶段为自主设计。",
+    "references": [
+      {
+        "title": "Google Rules of Machine Learning",
+        "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+        "note": "已讨论 Rule 1；其余待读"
+      },
+      {
+        "title": "Microsoft ML Model Production Checklist",
+        "url": "https://github.com/microsoft/code-with-engineering-playbook/blob/main/docs/ml-and-ai-projects/ml-model-checklist.md",
+        "note": "已整理11项检查清单"
+      },
+      {
+        "title": "Scikit-learn Common Pitfalls",
+        "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+        "note": "待读"
+      }
+    ],
+    "projectIds": [
+      "algorithm-engineering-standards"
+    ],
+    "topicIds": []
+  },
+  {
+    "id": "algorithm-engineering-standards-audit-design-20261126",
+    "section": "aviation",
+    "category": "engineering",
+    "type": "progress",
+    "title": "已完成设计｜民航数据审查 Skill 初步框架",
+    "date": "2026-11-26",
+    "points": 5,
+    "summary": "已确定七类审查维度和三层工具设计；尚未实现。",
+    "background": "数据审查不仅检查质量，还需理解观测机制与任务适用性。",
+    "process": "七类：数据结构（粒度、主键、关系）；质量（缺失、重复、异常、逻辑）；分布（分位数、偏度等）；变量关系（条件分布、相关）；时间特征（趋势、季节、自相关、突变）；生成机制（业务控制、采样、截断、选择偏差）；建模适用性（可观测性、泄漏、识别性、代表性）。",
+    "result": "初步拆分 general-data-profiling、aviation-data-audit、model-data-suitability。计划采用 SKILL.md + references + scripts + templates；仅形成设计，未完成代码或真实数据验证。",
+    "takeaway": "先做通用统计检查，再做业务规则与任务适用性；观测销量不必然等于需求，成交价不必然等于支付意愿。",
+    "references": [
+      {
+        "title": "NIST Exploratory Data Analysis",
+        "url": "https://itl.nist.gov/div898/handbook/eda/eda_d.htm",
+        "note": "优先学习统计假设与分析方法"
+      },
+      {
+        "title": "Google TensorFlow Data Validation",
+        "url": "https://www.tensorflow.org/tfx/tutorials/data_validation/tfdv_basic",
+        "note": "统计报告、异常、分布偏移"
+      },
+      {
+        "title": "Great Expectations Data Profiling",
+        "url": "https://greatexpectations.io/blog/what-is-data-profiling/",
+        "note": "可执行检查规则"
+      }
+    ],
+    "projectIds": [
+      "algorithm-engineering-standards"
+    ],
+    "topicIds": []
+  },
+  {
+    "id": "algorithm-engineering-standards-audit-next-20261126",
+    "section": "aviation",
+    "category": "engineering",
+    "type": "progress",
+    "title": "待完成 P0｜开发民航数据审查 Skill",
+    "date": "2026-11-26",
+    "points": 0,
+    "summary": "下一步优先完成数据审查试点。",
+    "background": "以获得授权的业务数据为基础建立可复用检查工具。",
+    "process": "①学习 NIST EDA 和 TFDV 案例；②确定数据字典、粒度及字段语义；③设计通用检查脚本、报告模板及测试案例；④选择获准的订座类数据试点；⑤增加业务逻辑、跨表一致性与任务相关检查；⑥验证正反案例、记录覆盖率及误报漏报；⑦扩展至库存、航班计划、结算等类型（以授权为前提）。",
+    "result": "待开发：脚本、标准报告、业务规则库、测试和版本管理。尚未运行真实数据。",
+    "takeaway": "执行原则：只读、无外部网络请求、限制资源消耗；原始数据不外传，任何统计结果和元数据分享均须获准。公开项目不记录内部表名、连接信息、真实样本或经营指标。",
+    "references": [],
+    "projectIds": [
+      "algorithm-engineering-standards"
+    ],
+    "topicIds": []
+  },
+  {
+    "id": "algorithm-engineering-standards-model-next-20261126",
+    "section": "aviation",
+    "category": "engineering",
+    "type": "progress",
+    "title": "待完成 P1｜模型知识库与适用性审查",
+    "date": "2026-11-26",
+    "points": 0,
+    "summary": "在数据审查基础上制定有依据的模型选型规范。",
+    "background": "模型适用性先于模型优劣比较。",
+    "process": "统一记录模型任务、数学原理、关键假设、数据要求、适用条件、失效边界、假设检验及优缺点；结合业务约束选择候选模型，再用公平实验比较。",
+    "result": "待完成模型知识库模板、候选模型审查清单、典型失败案例及选型 Skill。",
+    "takeaway": "模型能运行不代表假设成立；简单 Baseline 优先。",
+    "references": [
+      {
+        "title": "Scikit-learn Choosing the Right Estimator",
+        "url": "https://scikit-learn.org/stable/machine_learning_map.html",
+        "note": "选型参考"
+      },
+      {
+        "title": "Google Rules of ML",
+        "url": "https://developers.google.com/machine-learning/guides/rules-of-ml",
+        "note": "Rule 4 等待读"
+      }
+    ],
+    "projectIds": [
+      "algorithm-engineering-standards"
+    ],
+    "topicIds": []
+  },
+  {
+    "id": "algorithm-engineering-standards-lifecycle-next-20261126",
+    "section": "aviation",
+    "category": "engineering",
+    "type": "progress",
+    "title": "待完成 P2｜研发、验证与部署规范",
+    "date": "2026-11-26",
+    "points": 0,
+    "summary": "完善六阶段的剩余章节及阶段准入条件。",
+    "background": "形成从建模到生产的完整质量闭环。",
+    "process": "模型研发：Baseline、实验设计、参数估计、调参、诊断、实现规范和可复现性；验证：独立测试、公平比较、泛化、稳健性、业务价值；部署：效率、集成、数据质量与漂移监控、性能监控、更新及回退。",
+    "result": "待完成各阶段交付物、验收清单与准入条件，允许根据结果回到前序阶段修订。",
+    "takeaway": "学习小组可通过小项目逐项试行；将成熟规则转成可执行 Skills，并用有/无 Skill 对照及正反测试验证效果。",
+    "references": [
+      {
+        "title": "ML4T Skills",
+        "url": "https://github.com/ml4t/skills",
+        "note": "参考原子化设计、正反案例、检查清单；效果待验证"
+      },
+      {
+        "title": "Agent Skills specification",
+        "url": "https://agentskills.io/specification",
+        "note": "格式参考"
+      },
+      {
+        "title": "Anthropic Skill Creator",
+        "url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+        "note": "测试与迭代参考"
+      }
+    ],
+    "projectIds": [
+      "algorithm-engineering-standards"
+    ],
+    "topicIds": []
+  },
+  {
     "id": "pros-bid-price-paper-reading-20261126",
     "section": "aviation",
     "category": "research",

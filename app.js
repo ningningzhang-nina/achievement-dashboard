@@ -1,4 +1,5 @@
 const PROJECTS=[
+{"id":"algorithm-engineering-standards","title":"算法研发规范与民航数据审查 Skills","en":"ALGORITHM ENGINEERING · AVIATION DATA AUDIT","description":"建立六阶段算法研发规范、可执行 Agent Skills 与可复用数据审查工具；从问题定义、数据理解到模型选型、研发、验证和部署。","status":"In Progress · 规范 V0.3 / Skill 待开发","topics":[]},
 {"id":"pros-data-driven-bid-price","title":"PROS 数据驱动 Bid Price 预测研究","en":"PROS · DATA-DRIVEN BID PRICE GENERATION","description":"研究 PROS 利用历史订座与成交数据，通过启发式标签构造和神经网络直接预测 Bid Price 的方法；评估其对现有 RM 网络优化与 BP 计算的借鉴价值。","status":"待读 · Literature Review","topics":[]},
 {"id":"weekly-algorithm-interview-intelligence","title":"算法面经每周整理与自动采集","en":"WEEKLY ALGORITHM INTERVIEW INTELLIGENCE","description":"每周增量整理真实算法面经，形成可追溯题库与项目深挖训练素材。小红书单篇POC已完成，暂缓推进；重启后优先验证多平台采集和批量稳定性。","status":"Paused · POC validated","topics":[]},
 {id:"air-china-long-term-pricing",title:"国航长期定价",en:"AIR CHINA · LONG-TERM ROUND-TRIP PRICING",description:"基于旅客支付意愿与运价规则约束，优化国际航线往返长期运价结构；记录航司反馈、数据需求和模型迭代。",status:"In Progress",topics:[]},
@@ -73,7 +74,7 @@ app.innerHTML=page==="home"?shellHome():page==="projects"&&route[1]==="principle
 document.title=(page==="projects"?"Projects":page==="topics"?"Topics":page==="news"?"News & Signals":page==="projects"&&route[1]==="principles"?"Engineering Principles":page==="home"?"Research OS":"Research Detail")+" · Nini Zhang";
 window.scrollTo({top:0,behavior:"instant"});
 }
-async function load(){try{const r=await fetch("./data/achievements.json?v=20261125-private-news-v1",{cache:"no-store"});if(!r.ok)throw Error("data unavailable");const data=await r.json();if(!Array.isArray(data))throw Error("invalid data");achievements=data.filter(x=>x.type!=="news");const ep=await fetch("./data/engineering-principles.json?v=20261125",{cache:"no-store"});if(!ep.ok)throw Error("principles unavailable");engineering=await ep.json();}catch(e){console.error("Achievement data unavailable:",e);app.innerHTML='<div class="notfound"><h1>数据加载失败</h1><p>请刷新页面。如果问题持续，请检查 GitHub Pages 部署。</p></div>';return;}render();}
+async function load(){try{const r=await fetch("./data/achievements.json?v=20261126-algorithm-standards",{cache:"no-store"});if(!r.ok)throw Error("data unavailable");const data=await r.json();if(!Array.isArray(data))throw Error("invalid data");achievements=data.filter(x=>x.type!=="news");const ep=await fetch("./data/engineering-principles.json?v=20261125",{cache:"no-store"});if(!ep.ok)throw Error("principles unavailable");engineering=await ep.json();}catch(e){console.error("Achievement data unavailable:",e);app.innerHTML='<div class="notfound"><h1>数据加载失败</h1><p>请刷新页面。如果问题持续，请检查 GitHub Pages 部署。</p></div>';return;}render();}
 window.addEventListener("hashchange",render);
 document.addEventListener("click",e=>{const target=e.target.closest('[data-jump]');if(!target)return;e.preventDefault();const el=document.getElementById(target.dataset.jump);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});
 load();
