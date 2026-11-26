@@ -53,12 +53,81 @@ if(kind==="topics"){const items=TOPICS;return '<section class="dashboard-head"><
 const items=PROJECTS;
 return '<section class="dashboard-head projects-head"><div class="solid-watermark" aria-label="SOLID：深入、扎实、经得住追问">SOLID<small>GO DEEP · STAND UP TO SCRUTINY</small></div><a class="back" href="#/">← 返回首页</a><div class="eyebrow">RESEARCH / PROJECTS</div><h1>Projects · 研究项目</h1><p>按研究目标持续记录 Idea、实验与成果。</p><div class="summary-band"><div class="metric"><strong>'+xp(achievements)+'</strong><span>总 XP</span></div><div class="metric"><strong>'+items.length+'</strong><span>项目</span></div></div></section>'+projectStartReminder()+projectPrinciplesReminder()+'<div class="board projects-board">'+items.map((p,i)=>card(p,"project",i,items.length)).join("")+'</div>';
 }
+const PROJECT_BUSINESS_ANSWERS={
+  "ai-agent-evolution-and-review": [
+    "重复指导AI、人工反复检查交付物的成本暴露了反馈难以复用、审核责任未分离的问题。依据：项目两条研究方向。",
+    "减少低层次返工与人工审核时间，让负责人集中于目标、标准及关键决策；质量不能因自动化而下降。",
+    "反馈沉淀为版本化Skills，并分离执行、审核、验证角色；相比单次提示可复用规则，相比单Agent可引入独立证据。是否值得增加复杂度待验证。",
+    "以单Agent及人工审核为基线，在固定任务集比较错误漏检率、返工次数、人工分钟数、总成本和质量；检验规则更新前后回归表现。目前仅为Idea。"
+  ],
+  "solid-visible-technical-influence": [
+    "技术能力若仅存在于内部项目中，外部招聘方难以观察和验证。依据：项目描述；实际曝光缺口待量化。",
+    "将技术深度转化为可展示资产，降低外部评估成本，提高高质量职业机会的可达性。",
+    "选择技术博客、可复现开源代码和Skills作为证据，通过GitHub、X及LinkedIn传播；优先深度与可复现性，而非单纯追求流量。",
+    "记录发布前基线及发布后有效阅读、复现反馈、专业交流和相关岗位主动联系数；区分曝光与有效机会。目前待启动，不能宣称影响力提升。"
+  ],
+  "algorithm-engineering-standards": [
+    "算法汇报中问题定义不清、模型适用性和数据风险难以系统审查，促成六阶段规范设计。依据：V0.3与数据审查设计记录。",
+    "减少错误建模、重复返工和知识流失，形成可复用的研发质量管理能力。",
+    "先明确问题与数据，再审查数据、选型、研发、验证和部署；用可执行Skills和只读检查脚本固化成熟规则，先从数据审查试点。",
+    "用同类小项目的现有流程作基线，比较风险检出率、误报率、返工工时、实验可复现率；植入已知错误测试。已完成文档和设计，实际效果待验证。"
+  ],
+  "pros-data-driven-bid-price": [
+    "传统RM通过预测和网络优化产生BP；发现PROS论文探索直接生成BP，提出是否能降低计算或建模依赖的问题。依据：待读论文记录。",
+    "如果收入质量不下降且计算成本降低，可改善决策更新效率并为国际系统对标提供备选方案。",
+    "先精读并复现论文的启发式代理标签和神经网络，与传统DLP/DP方法对照；重点审查代理标签偏差、历史策略影响及网络约束。当前仅为研究候选。",
+    "在同一市场、容量、需求和销售规则下比较收入、计算时间、拒绝/接受决策及稳健性；BP数值一致性仅作辅助。尚未精读、复现或验证。"
+  ],
+  "weekly-algorithm-interview-intelligence": [
+    "普通网页搜索难稳定获取真实面经全文及图片内容，人工检索重复且难追溯。依据：OpenCLI单篇POC记录。",
+    "提高面试准备效率，积累可追溯的真实题库，帮助识别高频技能和项目追问。",
+    "采用本地浏览器桥接、原始来源保留、图文提取和去重；先做单篇POC再验证多平台与批量稳定性，避免提前投入完整自动化。",
+    "以人工搜集为基线，测每周有效新增题数、来源准确率、提取错误率、重复率及人工时间。已完成单篇POC，批量和跨平台效果待验证，项目暂缓。"
+  ],
+  "air-china-long-term-pricing": [
+    "航司反馈周中周末价差方向与旅客划分不宜固定，淡旺季不能仅从历史订座量判断。依据：航司展示反馈记录。",
+    "改善长期运价结构与真实需求、支付意愿及竞争环境的匹配，减少不合理价差，同时满足运价规则与执行约束。",
+    "采用数据驱动客群与季节划分、WTP估计及约束优化；结合运力、客座率和可获准竞品信息控制观测销量偏差。相比固定规则更灵活，但识别性与数据覆盖待审查。",
+    "以现行运价结构为基线，检验规则可行率、需求/选择模型样本外表现、反事实收益及价格结构稳定性；最终以受控业务试验或可靠准实验验证收入。已展示并获反馈，未证明生产增收。"
+  ],
+  "pods-v10-simulation": [
+    "现有仿真若同时承担预测和定价，难独立验证算法；真实交易数据也缺少反事实结果。依据：v10方案及v9修正记录。",
+    "在可控环境比较策略的真实决策质量，降低上线试错成本，为动态定价与强化学习提供一致评估环境。",
+    "将PODS独立为市场环境与评估器，使用真实Shopping/验价校准，显式设置可控Ground Truth；保留v9为基线，处理机器人与未购买观测缺失。",
+    "先验证真实市场校准指标，再验证虚拟市场稳定性与策略排序一致性；同随机种子比较收益、转化、客座率及弹性。已完成设计，真实校准和闭环实验待完成。"
+  ],
+  "airline-revenue-management-development": [
+    "动态规划运行慢、需求预测耗时长；同事通过语言改写及空跑对比发现计算与数据库读写瓶颈不同。依据：两条工程记录。",
+    "缩短端到端运行时间并保持决策结果正确，提高系统更新及时性、可扩展性及运维效率。",
+    "先分段计时定位瓶颈，再针对动态规划采用编译实现、针对预测优化数据库读写；避免未经测量就引入GPU等复杂架构。",
+    "固定数据规模、硬件及算法参数，比较优化前后端到端耗时、I/O耗时、资源用量、数值一致性及失败率。已有定性加速反馈，具体倍数尚未核实。"
+  ],
+  "jrpm-passenger-choice-review": [
+    "航空定价中的旅客选择建模需要区分数据可观测性、行为假设和定价用途；审稿反馈指出框架与量化验证需加强。依据：JRPM大修记录。",
+    "帮助研究及工程人员按实际数据条件和定价目标选择模型，避免将预测准确性等同于行为解释或决策价值。",
+    "通过结构化综述、SP/RP数据区分、模型假设及评价框架、量化指标与模拟示例建立可操作比较，而非仅罗列模型。",
+    "检查文献覆盖与引用准确性、审稿意见闭环、示例可复现性及框架能否区分模型适用性；发表与引用是外部反馈，不等同于业务价值。仓库记录仍为大修阶段，最新修回进度待同步。"
+  ],
+  "event-impact-demand": [
+    "业务交流中发现热点事件信息与航线需求及运营动作缺乏量化连接。依据：事件因果效应Idea记录。",
+    "若能在事件初期估计需求冲击，可帮助提前调整运力、库存和票价，减少错过机会或过度反应。",
+    "先估计历史事件反事实效应，再依据事件及市场特征迁移到新事件；与普通事件特征预测相比有望更好区分事件影响，但因果识别和迁移假设必须验证。",
+    "采用按公告时间滚动及留一事件验证，与无事件、普通事件特征模型对照；测需求误差、区间覆盖及仿真决策收益。尚无实验，数据和可信对照组待确认。"
+  ],
+  "airline-agent-simulation": [
+    "受量化多Agent市场模拟启发，提出传统固定旅客选择模型能否充分模拟异质行为及交互的问题。依据：Idea记录。",
+    "潜在价值是构建更灵活的航空市场实验环境，支持测试定价策略对不同客群及情景的影响。",
+    "探索LLM旅客Agent生成偏好及行为，与MNL等传统选择模型对照；只有在行为校准和决策评估确有增益时才引入LLM复杂度。与PODS项目共享评估思路但不预设替代关系。",
+    "在固定小规模场景对比传统Agent与LLM Agent的选择分布、弹性、转化率、策略排序、稳定性和推理成本；再做真实数据校准。当前仅Idea，未实验。"
+  ]
+};
+function projectBusinessAnswers(id){const questions=["为什么发现这个问题？","为什么值得解决？","为什么选择这个方案？","如何证明创造了价值？"];const values=PROJECT_BUSINESS_ANSWERS[id]||[];return '<section class="detail-panel"><h2>业务思考 · Four Questions</h2><p>项目立项与复盘：基于已有记录整理；方案理由及验证指标为待确认的分析建议，不代表已验证收益。</p>'+questions.map((q,i)=>'<div style="margin-top:18px"><h3>'+esc((i+1)+". "+q)+'</h3><p>'+esc(values[i]||"待补充")+'</p></div>').join("")+'</section>';}
 function entityDetail(kind,id){
 const project=kind==="project",obj=(project?PROJECTS:TOPICS).find(x=>x.id===id);
 if(!obj)return notFound();
 const rows=project?projectRows(id):topicRows(id);
 const related=project?(obj.topics||[]).map(k=>TOPICS.find(t=>t.id===k)).filter(Boolean).map(t=>tag(t,"topic")).join(""):PROJECTS.filter(p=>p.topics.includes(id)).map(p=>tag(p,"project")).join("");
-return '<div class="detail-layout"><article><a class="back" href="#/'+(project?"projects":"topics")+'">← 返回 '+(project?"Projects":"Topics")+'</a><div class="eyebrow">'+esc(obj.en)+' / '+(project?"PROJECT":"TOPIC")+'</div><h1>'+esc(obj.title)+'</h1>'+(obj.description?'<p class="detail-sub">'+esc(obj.description)+'</p>':'')+'<div class="summary-band"><div class="metric"><strong>'+xp(rows)+'</strong><span>关联 XP</span></div><div class="metric"><strong>'+rows.length+'</strong><span>条进展</span></div></div><section class="detail-panel"><h2>进展记录 · Progress</h2><div class="entity-progress">'+(rows.length?rows.map(rowItem).join(""):empty)+'</div></section></article><aside class="detail-aside"><div class="stat"><label>'+(project?"STATUS":"GROUP")+'</label><b>'+esc(project?obj.status:obj.group)+'</b></div><div class="stat"><label>'+(project?"RELATED TOPICS":"RELATED PROJECTS")+'</label><div class="tag-list">'+(related||'<span class="lane-empty">暂无关联</span>')+'</div></div></aside></div>';
+return '<div class="detail-layout"><article><a class="back" href="#/'+(project?"projects":"topics")+'">← 返回 '+(project?"Projects":"Topics")+'</a><div class="eyebrow">'+esc(obj.en)+' / '+(project?"PROJECT":"TOPIC")+'</div><h1>'+esc(obj.title)+'</h1>'+(obj.description?'<p class="detail-sub">'+esc(obj.description)+'</p>':'')+'<div class="summary-band"><div class="metric"><strong>'+xp(rows)+'</strong><span>关联 XP</span></div><div class="metric"><strong>'+rows.length+'</strong><span>条进展</span></div></div>'+(project?projectBusinessAnswers(id):"")+'<section class="detail-panel"><h2>进展记录 · Progress</h2><div class="entity-progress">'+(rows.length?rows.map(rowItem).join(""):empty)+'</div></section></article><aside class="detail-aside"><div class="stat"><label>'+(project?"STATUS":"GROUP")+'</label><b>'+esc(project?obj.status:obj.group)+'</b></div><div class="stat"><label>'+(project?"RELATED TOPICS":"RELATED PROJECTS")+'</label><div class="tag-list">'+(related||'<span class="lane-empty">暂无关联</span>')+'</div></div></aside></div>';
 }
 function notFound(){return '<div class="notfound"><h1>没有找到这个页面</h1><a class="cta" href="#/">返回首页 ↗</a></div>'}
 function detail(id){
