@@ -1,5 +1,53 @@
 [
   {
+    "id": "weekly-algorithm-interview-intelligence-poc-20261126",
+    "section": "ai",
+    "category": "engineering",
+    "type": "progress",
+    "title": "OpenCLI 面经采集：小红书单篇 POC 验证",
+    "date": "2026-11-26",
+    "points": 5,
+    "summary": "完成开源方案调研、本地OpenCLI环境配置及小红书单篇面经采集与AI图片提取验证。",
+    "background": "目标是每周整理新增真实算法面经，而非由AI凭空生成题目。普通网页搜索难以稳定获得小红书等平台全文，因此调研 OpenCLI、rz-skills 等公开方案，采用本地浏览器桥接路线。",
+    "process": "1. 调研参考：OpenCLI、rz-skills 等，借鉴采集、来源保留、题目去重、模拟面试设计。\n2. 本地环境：通过桌面客户端安装 CLI 2.0.3；Chrome Bridge 1.0.27 已连接，doctor 显示 connectivity.ok=true、issues=[]。\n3. 搜索：opencli xiaohongshu search \"算法社招面经\" --limit 5，成功返回5篇笔记及标题、日期、链接、点赞量。\n4. 详情、下载、评论：新版须使用搜索结果中包含 xsec_token 的完整 URL；note 返回元数据但样本正文为空，download 成功下载5张图片，comments 返回9条评论。\n5. 多模态提取：人工上传5张图片，AI识别封面及前两轮面试内容，整理成25条题目记录（含组合题），按轮次及知识点分类。原文疑似笔误保留待核查。",
+    "result": "已完成单篇端到端人工辅助POC。搜索、详情接口、图片下载、评论和AI图片理解已验证；纯文字正文读取尚未通过非空样本验证，图片自动传递、跨平台和批量稳定性尚未验证。",
+    "takeaway": "数据采集必须保留来源证据；签名链接仅在本地采集阶段使用，长期按平台和笔记ID去重。仅使用只读命令；遵守平台规则，不公开账号信息、签名参数或原始面经图片。",
+    "projectIds": [
+      "weekly-algorithm-interview-intelligence"
+    ],
+    "topicIds": [],
+    "references": [
+      {
+        "title": "OpenCLI",
+        "url": "https://github.com/jackwener/opencli",
+        "note": "本地浏览器桥接工具"
+      },
+      {
+        "title": "rz-skills",
+        "url": "https://github.com/RZRZ-Q/rz-skills",
+        "note": "面经采集与题库设计参考，尚未安装测试"
+      }
+    ]
+  },
+  {
+    "id": "weekly-algorithm-interview-intelligence-backlog-20261126",
+    "section": "ai",
+    "category": "planning",
+    "type": "progress",
+    "title": "后续待办：每周增量面经整理与自动化",
+    "date": "2026-11-26",
+    "points": 0,
+    "summary": "项目暂缓；记录重启顺序、验收标准及最终每周运行目标。以下为计划，不是已完成成果。",
+    "background": "目标：优先整理国内算法社招面经，覆盖预测、定价、供需、优化、因果推断、机器学习等方向；根据真实题目反向建设知识体系和项目深挖训练。",
+    "process": "P0 数据验证：测试牛客、知乎的搜索与完整详情；用小红书非空正文样本验证 note；测试多篇笔记及图片自动读取，记录失败原因和登录失效处理。\nP1 批量采集：设计公司/岗位/方向关键词，每周检索新发布内容；先筛选再读取，保留原始来源及发布日期，按平台+笔记ID去重，限制访问频率；签名失效重新搜索，不绕过平台风控。\nP2 Skills：开发 interview-research、interview-question-bank、technical-mock-interview；将采集、图片理解、题目提取、归类、质量审查拆分；区分候选人自述、评论补充和AI推演，标记不确定项，不编造。\nP3 私有题库：建立GitHub私有存储，记录企业、岗位、时间、轮次、题目、知识点、来源、证据位置和掌握程度；同义题合并但保留各来源；公开看板仅记录脱敏进展。\nP4 每周自动运行：本地脚本/Agent + OpenCLI + Mac launchd（候选方案）；验证开机、休眠、Chrome登录、失败重试及安全同步；输出每周新增面经、题目、重点考察趋势与待补强知识。具体执行环境和时间待定。\nP5 模拟面试：根据真实面经迁移到个人项目，逐题回答、至少三层追问、复盘薄弱点并更新学习计划。",
+    "result": "待完成：跨平台验证、批量采集、自动多模态提取、独立质量审查、私有题库、周度调度和模拟面试闭环。未创建定时任务。",
+    "takeaway": "重启时先做P0小规模验证，再开发采集Skill；不要重复安装已通过doctor的环境。验收标准：每周新增记录可追溯、去重、失败可见，且真实面经与AI模拟题严格分离。",
+    "projectIds": [
+      "weekly-algorithm-interview-intelligence"
+    ],
+    "topicIds": []
+  },
+  {
     "id": "air-china-long-term-pricing-feedback-20261113",
     "section": "aviation",
     "category": "pricing",
