@@ -1,5 +1,41 @@
 [
   {
+    "id": "ai-agent-evolution-and-review-feedback-20261126",
+    "title": "研究方向 1｜AI Agent 持续进化闭环",
+    "summary": "建立能够根据个人反馈持续改进的 AI 工作体系，而非每次从零开始指导 AI。",
+    "background": "目标：将个人反馈转化为可复用、可验证的工作规范与 Skills，减少重复指导。",
+    "process": "任务输入 → Agent 执行 → 结果交付 → 个人反馈 → 提炼经验与错误规律 → 更新 Skills / 工作规范 → 下一次任务执行。",
+    "result": "待研究：①反馈的自动沉淀；②经验提炼与 Skills 持续更新；③版本管理；④效果验证；⑤避免错误经验被固化。尚未开发或验证。",
+    "takeaway": "拟议验证方式（补充建议）：区分个人偏好、通用规则和单次纠错；保留反馈来源及适用边界；候选规则经过人工审批、回归测试和对照评估后再发布，支持回滚。",
+    "section": "ai",
+    "category": "engineering",
+    "type": "idea",
+    "date": "2026-11-26",
+    "points": 5,
+    "projectIds": [
+      "ai-agent-evolution-and-review"
+    ],
+    "topicIds": []
+  },
+  {
+    "id": "ai-agent-evolution-and-review-review-20261126",
+    "title": "研究方向 2｜多 Agent 执行与独立审核机制",
+    "summary": "通过执行、审核、验证角色分离，减少个人承担的低层次质量检查。",
+    "background": "最终目标：自己负责目标制定、标准制定和关键决策，而不是承担每一项工作的质量检查。",
+    "process": "任务分解 → 执行 Agent → 独立审核 Agent → 发现问题则返回修改并重新审核 → 验证 Agent → 最终交付。",
+    "result": "待研究：①不同 Agent 之间如何交接任务；②如何保持审核 Agent 独立判断；③如何建立明确的验收标准和自动返工机制；④如何降低多个 Agent 共同犯错的概率。尚未开发或验证。",
+    "takeaway": "拟议验证方式（补充建议）：结构化任务交接、独立证据与验收清单、确定性测试、最大返工次数及人工升级机制；比较单 Agent 与多 Agent 的错误检出率、漏检率、成本和人工介入时间。",
+    "section": "ai",
+    "category": "engineering",
+    "type": "idea",
+    "date": "2026-11-26",
+    "points": 5,
+    "projectIds": [
+      "ai-agent-evolution-and-review"
+    ],
+    "topicIds": []
+  },
+  {
     "id": "algorithm-engineering-standards-principles-20261126",
     "section": "aviation",
     "category": "engineering",
