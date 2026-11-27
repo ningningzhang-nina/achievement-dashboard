@@ -1,5 +1,19 @@
 [
   {
+    "id": "jrpm-review-second-revision-start-20261127",
+    "section": "aviation",
+    "category": "research",
+    "type": "progress",
+    "title": "第一次修改完成，开启第二轮修改",
+    "date": "2026-11-27",
+    "points": 5,
+    "summary": "JRPM 综述的第一轮修改已完成，现开始第二轮修改。",
+    "projectIds": [
+      "jrpm-passenger-choice-review"
+    ],
+    "topicIds": []
+  },
+  {
     "id": "ai-agent-evolution-and-review-feedback-20261126",
     "title": "研究方向 1｜AI Agent 持续进化闭环",
     "summary": "建立能够根据个人反馈持续改进的 AI 工作体系，而非每次从零开始指导 AI。",
